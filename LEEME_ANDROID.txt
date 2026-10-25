@@ -1,0 +1,44 @@
+RAUDA CONTROL DE MOTOS 2.0 — PAQUETE PARA ANDROID (PWA)
+
+Este paquete permite instalar la demo como una aplicación web en Android (PWA). NO es un archivo APK nativo.
+
+CÓMO INSTALAR EN ANDROID:
+1. Desde una computadora, extrae este ZIP.
+2. Publica el CONTENIDO de la carpeta (index.html, styles.css, app.js, manifest.webmanifest, sw.js, icon.svg) en un hosting HTTPS como Netlify.
+   - En Netlify, inicia sesión y usa Add new site / Deploy manually (o la opción de subir una carpeta, si aparece).
+   - Sube la carpeta extraída o arrastra sus archivos según indique la página.
+   - Espera a que Netlify entregue una URL HTTPS pública.
+3. En tu teléfono Android, abre esa URL con Google Chrome.
+4. Espera a que cargue la aplicación una vez con internet.
+5. En Chrome, toca ⋮ > Instalar aplicación o Añadir a pantalla principal.
+6. Confirma la instalación y abre Rauda desde el icono del teléfono.
+7. Después de la primera carga, la interfaz puede abrirse sin internet en ese mismo dispositivo gracias al service worker. Debes volver a tener internet para sincronizar? NOTA: esta demo NO sincroniza datos con Supabase ni con otros dispositivos.
+
+FUNCIONES DEMO:
+- Panel/resumen.
+- Crear créditos con interés fijo total del plazo.
+- Registrar abonos de prueba.
+- Clientes.
+- Inventario básico de motocicletas con número de chasis y número/serie de motor obligatorios. Evita registrar chasis o números de motor duplicados.
+- Caja de demostración.
+- Reportes/resumen.
+- Respaldo JSON.
+
+LIMITACIONES IMPORTANTES:
+- Los datos se guardan localmente en el navegador de ese dispositivo.
+- No hay sincronización entre teléfono y computadora.
+- No hay usuarios/roles seguros ni conexión configurada con Supabase.
+- No uses datos reales de clientes ni operaciones financieras reales con esta demo.
+- El modo offline depende de que se haya abierto una vez con conexión y de que el navegador conserve los datos.
+- Si necesitas una APK nativa .apk, este paquete no es APK; requiere compilar un proyecto Android aparte.
+
+
+NUEVO EN ESTA VERSION: PERFILES DE ACCESO (SOLO DEMO LOCAL)
+- Administrador general: usuario admin / contraseña admin123.
+- Administrador de créditos: usuario admin2 / contraseña rauda123.
+- Cajero: usuario caja / contraseña caja123.
+- Cliente de prueba: número C001 y crédito 101 (Carlos Martínez); o C002 y crédito 102 (José López).
+- En perfil Administrador general aparece la sección Usuarios para crear usuarios locales de prueba.
+
+SEGURIDAD IMPORTANTE:
+Este login es solo una simulación visual/funcional en el navegador. Las contraseñas están en el código/almacenamiento local y los permisos no están protegidos por servidor. No publicar esta demo como aplicación real de financiamiento ni usar datos reales. Para producción hay que implementar autenticación real (p. ej. Supabase Auth), políticas RLS por rol, funciones de base de datos seguras, auditoría y recuperación de acceso. El portal cliente debe validar de forma segura número de cliente y crédito, idealmente además con contraseña/OTP; los números por sí solos no son suficientes para proteger información financiera.
